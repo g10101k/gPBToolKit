@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A40FD923-FAD7-4D3A-A78A-5D6D4331267D}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>gPBToolKit</AssemblyName>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>False</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>gPBToolKit</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <ReferencePath>C:\Program Files %28x86%29\PIPC\Procbook\</ReferencePath>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <SourceAnalysisOverrideSettingsFile>C:\Users\igor\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <StartAction>Program</StartAction>
+    <StartProgram>C:\Program Files (x86)\PIPC\Procbook\Procbook.exe</StartProgram>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>False</NoStdLib>
+    <Optimize>False</Optimize>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>Full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>obj\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Extensibility">
+      <Name>extensibility</Name>
+      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio .NET 2003\Common7\IDE\PublicAssemblies\extensibility.dll</HintPath>
+      <AssemblyFolderKey>hklm\publicassemblies</AssemblyFolderKey>
+    </Reference>
+    <Reference Include="ICSharpCode.NRefactory">
+      <HintPath>.\ICSharpCode.NRefactory.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpDevelop.Dom">
+      <HintPath>.\ICSharpCode.SharpDevelop.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.TextEditor">
+      <HintPath>.\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.VBIDE, Version=5.3.0.0, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>D:\.work\.indusoft\gPBToolKit\AddInPBToolbar_CS4\Debug2\Interop.VBIDE.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>libs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Cecil">
+      <HintPath>libs\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="OSIsoft.PBObjLib">
+      <Name>OSIsoft.PBObjLib</Name>
+      <HintPath>..\..\..\..\Program Files (x86)\PIPC\Procbook\OSIsoft.PBObjLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="OSIsoft.PBSymLib">
+      <Name>OSIsoft.PBSymLib</Name>
+      <HintPath>c:\Program Files (x86)\PIPC\Procbook\OSIsoft.PBSymLib.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OSIsoft.PISDK, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\PIPC\PISDK\OSIsoft.PISDK.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OSIsoft.PISDK.Controls.MDBTreeNet, Version=1.3.0.1, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=MSIL" />
+    <Reference Include="OSIsoft.PISDKCommon, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\PIPC\PISDK\OSIsoft.PISDKCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OSIsoft.PISDKDlg, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\PIPC\PISDK\OSIsoft.PISDKDlg.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="OSIsoft.PITimeServer, Version=1.3.0.0, Culture=neutral, PublicKeyToken=c3309f0734ba2805, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Program Files (x86)\PIPC\PISDK\OSIsoft.PITimeServer.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlarmManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlarmManager.designer.cs">
+      <DependentUpon>AlarmManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AVEAlarmObject.cs" />
+    <Compile Include="CodeCompletionKeyHandler.cs" />
+    <Compile Include="CodeCompletionProvider.cs" />
+    <Compile Include="Connect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="HostCallbackImplementation.cs" />
+    <Compile Include="ScriptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ScriptForm.designer.cs">
+      <DependentUpon>ScriptForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="mLayer.cs" />
+    <Compile Include="MultiStateMinMax.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MultiStateMinMax.designer.cs">
+      <DependentUpon>MultiStateMinMax.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PBTools.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReplaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReplaceForm.designer.cs">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Res2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Res2.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForm.designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UOM.cs" />
+    <None Include="Resources\debug.PDI" />
+    <None Include="setup.bat" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlarmManager.resx">
+      <DependentUpon>AlarmManager.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ScriptForm.resx">
+      <DependentUpon>ScriptForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MultiStateMinMax.resx">
+      <DependentUpon>MultiStateMinMax.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReplaceForm.resx">
+      <DependentUpon>ReplaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Res2.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Res2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="VBA">
+      <Guid>{000204EF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>6</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>9</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_tree.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_tree1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\paste_word.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_side_expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lightning_go1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_save.png" />
+    <None Include="Resources\google_custom_search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\ICSharpCode.NRefactory.dll" />
+    <Content Include="libs\ICSharpCode.SharpDevelop.dll" />
+    <Content Include="libs\ICSharpCode.SharpDevelop.Dom.dll" />
+    <Content Include="libs\ICSharpCode.SharpDevelop.Sda.dll" />
+    <Content Include="libs\ICSharpCode.TextEditor.dll" />
+    <Content Include="libs\Interop.VBA.dll" />
+    <Content Include="libs\log4net.dll" />
+    <Content Include="libs\Mono.Cecil.dll" />
+    <Content Include="libs\OSIsoft.PBObjLib.dll" />
+    <Content Include="Resources\arrow_turn_right.png" />
+    <Content Include="Resources\Icon1.ico" />
+    <Content Include="Resources\lightbulb_add.png" />
+    <Content Include="Resources\lightbulb_delete.png" />
+    <Content Include="Resources\tree.png" />
+    <Content Include="Resources\update.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>echo on
+ if $(ConfigurationName)==Debug  "$(ProjectDir)setup.bat"
+
+
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

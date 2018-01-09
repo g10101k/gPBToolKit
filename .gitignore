@@ -1,4 +1,4 @@
 /*.exe*
 /*.dll
-/projects/GEDKeeper2/bin/
-/projects/GEDKeeper2/obj/
+/gPBToolKit/bin
+/gPBToolKit/obj
