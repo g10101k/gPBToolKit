@@ -22,7 +22,7 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <ReferencePath>C:\Program Files %28x86%29\PIPC\Procbook\</ReferencePath>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <OldToolsVersion>2.0</OldToolsVersion>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -40,14 +40,15 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
     <NoWin32Manifest>False</NoWin32Manifest>
-    <SignAssembly>false</SignAssembly>
+    <SignAssembly>False</SignAssembly>
     <AssemblyOriginatorKeyMode>File</AssemblyOriginatorKeyMode>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <RunCodeAnalysis>False</RunCodeAnalysis>
     <SourceAnalysisOverrideSettingsFile>C:\Users\igor\AppData\Roaming\ICSharpCode/SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>C:\Program Files %28x86%29\PIPC\Procbook\gPBToolKit\</OutputPath>
     <StartAction>Program</StartAction>
     <StartProgram>C:\Program Files (x86)\PIPC\Procbook\Procbook.exe</StartProgram>
     <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
@@ -60,7 +61,7 @@
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>False</NoStdLib>
     <Optimize>False</Optimize>
-    <RegisterForComInterop>true</RegisterForComInterop>
+    <RegisterForComInterop>True</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
     <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
     <WarningLevel>4</WarningLevel>
@@ -75,13 +76,9 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>
-    </DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
-    <NoWarn>
-    </NoWarn>
     <Optimize>true</Optimize>
     <RegisterForComInterop>false</RegisterForComInterop>
     <RemoveIntegerChecks>false</RemoveIntegerChecks>
@@ -89,10 +86,6 @@
     <WarningLevel>4</WarningLevel>
     <DebugType>none</DebugType>
     <ErrorReport>prompt</ErrorReport>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>
-    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Extensibility">
@@ -120,6 +113,12 @@
     </Reference>
     <Reference Include="Mono.Cecil">
       <HintPath>libs\Mono.Cecil.dll</HintPath>
+    </Reference>
+    <Reference Include="OSIsoft.AF.UI">
+      <HintPath>C:\Program Files %28x86%29\PIPC\AF\PublicAssemblies\OSIsoft.AF.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="OSIsoft.AFSDK">
+      <HintPath>C:\Program Files %28x86%29\PIPC\AF\PublicAssemblies\OSIsoft.AFSDK.dll</HintPath>
     </Reference>
     <Reference Include="OSIsoft.PBObjLib">
       <Name>OSIsoft.PBObjLib</Name>
@@ -173,6 +172,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AFGroupReplace.cs" />
+    <Compile Include="AFGroupReplace.Designer.cs">
+      <DependentUpon>AFGroupReplace.cs</DependentUpon>
+    </Compile>
     <Compile Include="AlarmManager.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,6 +234,9 @@
     <None Include="setup.bat" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AFGroupReplace.resx">
+      <DependentUpon>AFGroupReplace.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AlarmManager.resx">
       <DependentUpon>AlarmManager.cs</DependentUpon>
       <SubType>Designer</SubType>

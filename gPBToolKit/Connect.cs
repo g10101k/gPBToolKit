@@ -31,11 +31,12 @@ using System.Diagnostics;
 
 namespace gPBToolKit
 {
-	[GuidAttribute("F097B2F4-32FD-4022-ABDB-6F69B82F0289"), ProgId("gPBToolKit.Connect")]
+    [GuidAttribute("F097B2F4-32FD-4022-ABDB-6F69B82F0289"), ProgId("gPBToolKit.Connect")]
     public class Connect : IDTExtensibility2, IDisposable
     {
         private PBObjLib.Application m_theApp = null;
         public TreeNode treeNode;
+
         private string m_strAddInName = "About";
         private string m_strAddInName2 = "MultiState";
         private string m_strAddInName3 = "Set UOM";
@@ -43,6 +44,7 @@ namespace gPBToolKit
         private string m_strAddInName5 = "ReplaceInValue";
         private string m_strAddInName6 = "SearchTag";
         private string m_strAddInName7 = "gScript";
+        private string m_strAddInName8 = "AF Group Replace";
 
         #region command bar
 
@@ -53,6 +55,8 @@ namespace gPBToolKit
         private PBCommandBarControl m_pbControlReplace = null;
         private PBCommandBarControl m_pbControlSearch = null;
         private PBCommandBarControl m_pbControlScript = null;
+        private PBCommandBarControl m_pbControlAFGR = null;
+
         #endregion
 
         public Connect()
@@ -65,11 +69,11 @@ namespace gPBToolKit
 
         public void OnConnection(object Application, Extensibility.ext_ConnectMode ConnectMode, object AddInInst, ref System.Array custom)
         {
-            try
-            {
+            try {
                 m_theApp = (PBObjLib.Application)Application;
 
                 #region command bar
+
                 //this code attaches the add-in to the add-in command bar
                 bool bPropertyExist = false;
                 bool bMakeCoolExist = false;
@@ -78,24 +82,23 @@ namespace gPBToolKit
                 bool bReplaceExist = false;
                 bool bSearchTag = false;
                 bool bScript = false;
+                bool bAFGR = false;
+
                 //delete this code if you do not desire to have the add-in added
                 //to the commandbar as a button
                 //add the command bar if it is not there.....
                 PBObjLib.PBCommandBar pbCommandBar = m_theApp.CommandBars.Item("Add-Ins");
-                if (pbCommandBar == null)
-                {
+                if (pbCommandBar == null) {
                     m_theApp.CommandBars.Add("Add-Ins", 1, false, false);
                     pbCommandBar = m_theApp.CommandBars.Item("Add-Ins");
                 }
 
-                if (pbCommandBar != null)
-                {
+                if (pbCommandBar != null) {
 
                     PBObjLib.PBCommandBarControls pbControls = (PBObjLib.PBCommandBarControls)pbCommandBar.Controls;
                     System.Collections.IEnumerator enumerator = pbControls.GetEnumerator();
 
-                    while (enumerator.MoveNext())
-                    {
+                    while (enumerator.MoveNext()) {
                         PBObjLib.PBCommandBarControl cb = (PBObjLib.PBCommandBarControl)enumerator.Current;
                         //cb.Delete();
                         string strCurrName = cb.Caption.ToString();
@@ -113,76 +116,73 @@ namespace gPBToolKit
                             bSearchTag = true;
                         if (strCurrName == m_strAddInName7)
                             bScript = true;
+                        if (strCurrName == m_strAddInName8)
+                            bAFGR = true;
                     }
 
-                    if (!bPropertyExist)
-                    {
+                    if (!bPropertyExist) {
                         m_pbControl = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControl.Caption = m_strAddInName;
                         m_pbControl.ToolTipText = Res2.m_pbControlSettingsToolTipText;
                         
                         ((ECommandBarButtonEvents_Event)m_pbControl).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.AddInClicked);
-                    }
-                    else
+                    } else
                         m_pbControl = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName);
-                    if (!bMakeCoolExist)
-                    {
+
+                    if (!bMakeCoolExist) {
                         m_pbControlAlign = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlAlign.Caption = m_strAddInName2;
                         
                         ((ECommandBarButtonEvents_Event)m_pbControlAlign).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.FillGood);
-                    }
-                    else
+                    } else
                         m_pbControlAlign = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName2);
-                    if (!bUOMExist)
-                    {
+
+                    if (!bUOMExist) {
                         m_pbControlUOM = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlUOM.Caption = m_strAddInName3;
 
                         ((ECommandBarButtonEvents_Event)m_pbControlUOM).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.SetUOM);
-                    }
-                    else
+                    } else
                         m_pbControlUOM = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName3);
-                    if (!bAlarmExist)
-                    {
+
+                    if (!bAlarmExist) {
                         m_pbControlAlarm = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlAlarm.Caption = m_strAddInName4;
                         ((ECommandBarButtonEvents_Event)m_pbControlAlarm).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.ChangeAlarm);
-                    }
-                    else
+                    } else
                         m_pbControlAlarm = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName4);
-                    if (!bReplaceExist)
-                    {
+
+                    if (!bReplaceExist) {
                         m_pbControlReplace = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlReplace.Caption = m_strAddInName5;
                         ((ECommandBarButtonEvents_Event)m_pbControlReplace).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.ReplaceInValue);
-                    }
-                    else
+                    } else
                         m_pbControlReplace = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName5);
 
-                    if (!bSearchTag)
-                    {
+                    if (!bSearchTag) {
                         m_pbControlSearch = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlSearch.Caption = m_strAddInName6;
                         ((ECommandBarButtonEvents_Event)m_pbControlSearch).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.SearchValue);
-                    }
-                    else
+                    } else
                         m_pbControlSearch = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName6);
                     
-                    if (!bScript)
-                    {
+                    if (!bScript) {
                         m_pbControlScript = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
                         m_pbControlScript.Caption = m_strAddInName7;
                         ((ECommandBarButtonEvents_Event)m_pbControlScript).Click += new PBObjLib.ECommandBarButtonEvents_ClickEventHandler(this.ShowScriptForm);
-                    }
-                    else
+                    } else
                         m_pbControlScript = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName7);
 
+                    if (!bAFGR) {
+                        m_pbControlAFGR = (PBObjLib.PBCommandBarControl)pbControls.Add((Object)PBObjLib.pbControlType.pbControlButton, 1, null, null, false);
+                        m_pbControlAFGR.Caption = m_strAddInName8;
+                        ((ECommandBarButtonEvents_Event)m_pbControlScript).Click += this.ShowAFGR;
+                    } else
+                        m_pbControlAFGR = (PBObjLib.PBCommandBarControl)pbControls.Item(m_strAddInName8);
                 }
+
                 #endregion
-            }
-            catch (Exception ex)
-            {
+            } catch (Exception ex) {
                 MessageBox.Show("Exception in OnConnection=" + ex.Message);
             }
         }
@@ -190,6 +190,7 @@ namespace gPBToolKit
         public void OnDisconnection(Extensibility.ext_DisconnectMode RemoveMode, ref System.Array custom)
         {
             #region command bar
+
             m_pbControl.Delete();
             m_pbControlAlign.Delete();
             m_pbControlUOM.Delete();
@@ -197,6 +198,7 @@ namespace gPBToolKit
             m_pbControlReplace.Delete();
             m_pbControlSearch.Delete();
             m_pbControlScript.Delete();
+
             #endregion
 
             System.GC.Collect();
@@ -215,6 +217,7 @@ namespace gPBToolKit
         }
 
         #region command bar
+
         // Event Handler
         // Opens a Simple Form, Select cancel to close
         public void AddInClicked(PBCommandBarButton commandBarButton, ref bool b1)
@@ -252,11 +255,18 @@ namespace gPBToolKit
             frm.ShowDialog();
         }
 
-         public void ShowScriptForm(PBCommandBarButton commandBarButton, ref bool b1)
-         {
-             ScriptForm frm = new ScriptForm(m_theApp);
-             frm.ShowDialog();
-         }
+        public void ShowScriptForm(PBCommandBarButton commandBarButton, ref bool b1)
+        {
+            ScriptForm frm = new ScriptForm(m_theApp);
+            frm.ShowDialog();
+        }
+
+        public void ShowAFGR(PBCommandBarButton commandBarButton, ref bool b1)
+        {
+            AFGroupReplace frm = new AFGroupReplace(m_theApp);
+            frm.ShowDialog();
+        }
+
         #endregion
     }
 }
