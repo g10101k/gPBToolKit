@@ -4,3 +4,8 @@
 /gPBToolKit/bin
 /gPBToolKit/obj
 /temp/
+
+/PBToolkitBar/bin
+/PBToolkitBar/obj
+/PBToolkitBar/libs/*.dll
+/PBToolkitBar/libs/*.xml
