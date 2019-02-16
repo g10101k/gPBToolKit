@@ -1,3 +1,21 @@
+/*
+ *  "gk.PBToolKit", a set of utilities for processing mimics OSISoft PI Processbook, 
+ *  implemented as an add-in.
+ *
+ *  Copyright (C) 2015-2019  Igor Tyulyakov aka g10101k, g101k. Contacts: <g101k@mail.ru>
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -197,9 +215,9 @@ namespace gPBToolKit
 
         private void button7_Click(object sender, EventArgs e)
         {
-            // Source code для компиляции
+            // Source code пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             string source = editor.Document.TextContent;
-            // Настройки компиляции
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Dictionary<string, string> providerOptions = new Dictionary<string, string>();
             providerOptions.Add("CompilerVersion", "v2.0");
             CSharpCodeProvider provider = new CSharpCodeProvider(providerOptions);
@@ -214,10 +232,10 @@ namespace gPBToolKit
             compilerParams.ReferencedAssemblies.Add(@"C:\Program Files (x86)\PIPC\Procbook\OSIsoft.PBObjLib.dll");
             compilerParams.ReferencedAssemblies.Add(@"C:\Program Files (x86)\PIPC\Procbook\OSIsoft.PBSymLib.dll");
 
-            // Компиляция
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             CompilerResults results = provider.CompileAssemblyFromSource(compilerParams, source);
 
-            // Выводим информацию об ошибках
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //System.Windows.Forms.MessageBox.Show(string.Format("Number of Errors: {0}", results.Errors.Count));
             foreach (CompilerError err in results.Errors)
             {

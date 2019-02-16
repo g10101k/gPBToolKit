@@ -1,3 +1,21 @@
+/*
+ *  "gk.PBToolKit", a set of utilities for processing mimics OSISoft PI Processbook, 
+ *  implemented as an add-in.
+ *
+ *  Copyright (C) 2015-2019  Igor Tyulyakov aka g10101k, g101k. Contacts: <g101k@mail.ru>
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,9 +30,9 @@ using VBIDE;
 using PISDK;
 using PISDKDlg;
 
-//TODO: Задать путь к модулю
-//TODO: Сделать обертку для проперти
-//TODO: После добавления  выбирать узел в подульке
+//TODO: пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+//TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//TODO: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 
 namespace gPBToolKit
@@ -56,7 +74,7 @@ namespace gPBToolKit
         }
 
         ///<summary>
-        /// Возвращает элемент мнемосхемы с заданным именем
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         ///</summary> 
         private PBObjLib.Symbol getSymbolByName(string Name)
         {
@@ -67,7 +85,7 @@ namespace gPBToolKit
         }
 
         ///<summary>
-        /// Продолжение инициализации, добывает прокт из мнемосхемы, аларм элементы.
+        /// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
         ///</summary> 
         private void getAVEAlarmObject()
         {
@@ -76,7 +94,7 @@ namespace gPBToolKit
                 for (int i = 1; i <= ((VBE)m_App.VBE).VBProjects.Count; i++)
                 {
                     VBProject bufProject = ((VBE)m_App.VBE).VBProjects.Item(i);
-                    if (bufProject.FileName.ToLower() == m_App.ActiveDisplay.Path.ToLower()) // Если не сохранить будет ошибка
+                    if (bufProject.FileName.ToLower() == m_App.ActiveDisplay.Path.ToLower()) // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     {
                         project = bufProject;
                         break;
@@ -93,7 +111,7 @@ namespace gPBToolKit
                 string procDisplayText = "";
 
                 codeModule = project.VBComponents.Item("ThisDisplay").CodeModule;
-                //TODO: Имя функции нужно брать из "Текущего дисплея", пока оставим AVExtension1_QueryObjectInfo. Со временем допилить!
+                //TODO: пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ", пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ AVExtension1_QueryObjectInfo. пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ!
                 try
                 {                    
                     string procName = "AVExtension1_QueryObjectInfo";
@@ -169,13 +187,13 @@ namespace gPBToolKit
             }
             catch {
                 property = module.PIProperties.Add("%meta", null);
-                property.PIProperties.Add("Class", "Измерительный прибор");
+                property.PIProperties.Add("Class", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ");
                 property.PIProperties.Add("ModeVisualization", null);
                 property.PIProperties.Add("Position", "Position");
                 property.PIProperties.Add("ShowInAlarmList", "True");
                 property.PIProperties.Add("StateSource", "Manual");
                 property.PIProperties.Add("Tags", null);
-                property.PIProperties.Add("Описание", "Описание");
+                property.PIProperties.Add("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
             }
             try
             {
@@ -199,12 +217,12 @@ namespace gPBToolKit
             {
                 getAVEAlarmObject();
 
-                currentSymbol = (Symbol)m_App.ActiveDisplay.SelectedSymbols.Item(1); // И не ипеt что их может быть больше или это может быть вообще не символ =)
+                currentSymbol = (Symbol)m_App.ActiveDisplay.SelectedSymbols.Item(1); // пїЅ пїЅпїЅ пїЅпїЅпїЅt пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ =)
                 currentSymbol.EnableScript = true;
-                AVE = getSymbolByName("AVExtension1");// TODO: Найти любой AVE не только 1
+                AVE = getSymbolByName("AVExtension1");// TODO: пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ AVE пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 1
 
                 if (AVE == null){
-                    MessageBox.Show("Нет AVExtension1");
+                    MessageBox.Show("пїЅпїЅпїЅ AVExtension1");
                     this.Dispose(false);
                 }
 
@@ -334,13 +352,13 @@ namespace gPBToolKit
         {
             try
             {
-                PIProperty property = AlarmsNode.PIProperties.Add(string.Format("Тревога{0}", AlarmsNode.PIProperties.Count), null);
+                PIProperty property = AlarmsNode.PIProperties.Add(string.Format("пїЅпїЅпїЅпїЅпїЅпїЅпїЅ{0}", AlarmsNode.PIProperties.Count), null);
                 property.PIProperties.Add("TagName", "");
                 property.PIProperties.Add("Enabled", true);
                 property.PIProperties.Add("AcknowledgmentUserGroup", null);
                 property.PIProperties.Add("TraceInterval", "1000");
-                property.PIProperties.Add("Type", "Технология");
-                //property.PIProperties.Add("Position", "Позиция");
+                property.PIProperties.Add("Type", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
+                //property.PIProperties.Add("Position", "пїЅпїЅпїЅпїЅпїЅпїЅпїЅ");
                 updateAlarms();
                 listBox1.SelectedIndex = listBox1.Items.Count - 1;
                 //AlarmManager_Load(null, null);
@@ -352,20 +370,20 @@ namespace gPBToolKit
         }
 
         private void editQueryObjectInfo(string objectName, string objInfo, int objType)
-        {//TODO: Запилить objType
-            int countOfCase = 0; // если 1 значит нашел имя если 2 значит нашел нужную строку 
+        {//TODO: пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ objType
+            int countOfCase = 0; // пїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
             for (int j = 1; j <= codeModule.CountOfLines; j++)
             {
                 string bufString = codeModule.get_Lines(j, 1);
                 if (bufString.IndexOf(string.Format("Case \"{0}\"", objectName)) > 0)
-                    countOfCase++; // нашли имя
+                    countOfCase++; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
                 if (countOfCase > 0)
                     if (bufString.IndexOf("objInfo") > 0)
-                        countOfCase++; // нашли строку с objInfo
+                        countOfCase++; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ objInfo
                 if (countOfCase > 1)
                 {
-                    // заменяем строку
+                    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     string[] array = bufString.Split(new char[] { '"' });
                     array[1] = objInfo;
                     codeModule.ReplaceLine(j, string.Join("\"", array));
@@ -394,16 +412,16 @@ namespace gPBToolKit
 
         private string getQueryObjectInfo(string objectName)
         {
-            int countOfCase = 0; // если 1 значит нашел имя если 2 значит нашел нужную строку 
+            int countOfCase = 0; // пїЅпїЅпїЅпїЅ 1 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ 2 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 
 
             for (int j = 1; j <= codeModule.CountOfLines; j++)
             {
                 string bufString = codeModule.get_Lines(j, 1);
                 if (bufString.IndexOf(string.Format("Case \"{0}\"", objectName)) > 0)
-                    countOfCase++; // нашли имя
+                    countOfCase++; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
                 if (countOfCase > 0)
                     if (bufString.IndexOf("objInfo") > 0)
-                        countOfCase++; // нашли строку с objInfo
+                        countOfCase++; // пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ objInfo
                 if (countOfCase > 1)
                     return bufString.Split(new char[] { '"' })[1];
             }
@@ -416,14 +434,14 @@ namespace gPBToolKit
                 button2_Click(null, null);
             if ((int)e.KeyChar == 22)
             {
-                // смотрим что в буфере) 
+                // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ) 
                 IDataObject d = Clipboard.GetDataObject();
 
                 if (d.GetDataPresent(DataFormats.Text))
                 {
                     string s = (String)d.GetData(DataFormats.UnicodeText);
                     /*
-                     //Долго :(
+                     //пїЅпїЅпїЅпїЅпїЅ :(
                     ServerManagerClass srvMgr = new ServerManagerClass();
                     PI3PIPointClass point = srvMgr.PISDK.Servers[ServerName].GetPointsSQL(string.Format("PIpoint.SourceTag = '{0}'", s));
                      */
@@ -437,7 +455,7 @@ namespace gPBToolKit
                         else
                             s = (count == 6) ? ".ALARM:" + b[i] + s : ":" + b[i] + s;                       
                     }
-                    // проверяем есть ли тег
+                    // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅ
                     ServerManagerClass srvMgr = new ServerManagerClass();
                     try
                     {
@@ -479,7 +497,7 @@ namespace gPBToolKit
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {//Добавляет код в проект для индикации объекта
+        {//пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             if ((int)e.KeyChar == 13)
             {
                 this.editQueryObjectInfo(currentSymbol.Name, textBox1.Text, 0);

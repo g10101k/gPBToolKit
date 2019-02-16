@@ -1,3 +1,21 @@
+/*
+ *  "gk.PBToolKit", a set of utilities for processing mimics OSISoft PI Processbook, 
+ *  implemented as an add-in.
+ *
+ *  Copyright (C) 2015-2019  Igor Tyulyakov aka g10101k, g101k. Contacts: <g101k@mail.ru>
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 using System;
 using System.IO;
 using System.Collections.Generic;
@@ -70,7 +88,7 @@ namespace gPBToolKit
 {
     public class gkScript
     {   
-    	// Передается активный дисплей
+    	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
     	public static void StartScript(Display d)
     	{
     		foreach (Symbol s in d.Symbols)
@@ -94,7 +112,7 @@ namespace gPBToolKit
                 for (int i = 1; i <= ((VBE)m_App.VBE).VBProjects.Count; i++)
                 {
                     VBProject bufProject = ((VBE)m_App.VBE).VBProjects.Item(i);
-                    if (bufProject.FileName.ToLower() == m_App.ActiveDisplay.Path.ToLower()) // Если не сохранить будет ошибка
+                    if (bufProject.FileName.ToLower() == m_App.ActiveDisplay.Path.ToLower()) // пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
                     {
                         project = bufProject;
                         break;
@@ -122,7 +140,7 @@ namespace gPBToolKit
                 		codeModule.DeleteLines(procStart, procCountLine);
                 	
                 	string srvName = ""do51-dc1-du-pis.sgpz.gpp.gazprom.ru"";
-                	string rootModule = ""СГПЗ"";                	
+                	string rootModule = ""пїЅпїЅпїЅпїЅ"";                	
                 	string dispOpenText = string.Format(@""
 Private Sub Display_Open()
     AVExtension1.Initialize """"{0}"""", """"{1}"""", ThisDisplay, Trend1
@@ -180,9 +198,9 @@ End Sub"", srvName, rootModule);
         public void toolStripButton1_Click(object sender, EventArgs e)
         {
             errorList.Items.Clear();
-            // Source code для компиляции
+            // Source code пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             string source = editor.Document.TextContent;
-            // Настройки компиляции
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             Dictionary<string, string> providerOptions = new Dictionary<string, string>();
             providerOptions.Add("CompilerVersion", "v2.0");
             CSharpCodeProvider provider = new CSharpCodeProvider(providerOptions);
@@ -195,10 +213,10 @@ End Sub"", srvName, rootModule);
                 compilerParams.ReferencedAssemblies.Add(o.ToString());
 
 
-            // Компиляция
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             CompilerResults results = provider.CompileAssemblyFromSource(compilerParams, source);
 
-            // Выводим информацию об ошибках
+            // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
             //System.Windows.Forms.MessageBox.Show(string.Format("Number of Errors: {0}", results.Errors.Count));
             foreach (CompilerError err in results.Errors)
             {
@@ -216,7 +234,7 @@ End Sub"", srvName, rootModule);
                 MethodInfo method = type.GetMethod("StartScript");
                 method.Invoke(null, new object[] { m_App.ActiveDisplay });
                 ListViewItem item = errorList.Items.Add("");
-                item.SubItems.Add("Выполнено успешно!!!");
+                item.SubItems.Add("пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ!!!");
             }
         }
 

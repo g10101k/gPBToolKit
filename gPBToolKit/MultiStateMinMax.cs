@@ -1,3 +1,21 @@
+/*
+ *  "gk.PBToolKit", a set of utilities for processing mimics OSISoft PI Processbook, 
+ *  implemented as an add-in.
+ *
+ *  Copyright (C) 2015-2019  Igor Tyulyakov aka g10101k, g101k. Contacts: <g101k@mail.ru>
+ *  
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
+ *
+ *       http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *   Unless required by applicable law or agreed to in writing, software
+ *   distributed under the License is distributed on an "AS IS" BASIS,
+ *   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *   See the License for the specific language governing permissions and
+ *   limitations under the License.
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -74,7 +92,7 @@ namespace gPBToolKit
                     .Replace("/", ",")
                     .Replace("?", ",")
                     .Replace(">", ",")
-                    .Replace("б", ","));
+                    .Replace("пїЅ", ","));
             }
             if (textBox2.Text != "")
             {
@@ -83,7 +101,7 @@ namespace gPBToolKit
                     .Replace("/", ",")
                     .Replace("?", ",")
                     .Replace(">", ",")
-                    .Replace("б", ","));
+                    .Replace("пїЅ", ","));
             }
 
             double tagZero = 0, tagSpan = 0;
@@ -132,7 +150,7 @@ namespace gPBToolKit
                 stateCount = stateCount + 1;
 
             tMState.StateCount = stateCount;
-            //double tagSpan = 100; // В итоге берется из тега))
+            //double tagSpan = 100; // пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ))
             MSState MyState;// As MSState
 
             if (stateCount == 2)
@@ -140,20 +158,20 @@ namespace gPBToolKit
                 if (textBox1.Text == "")
                 {
                     tMState.DefineState(1, tagZero, fMax);
-                    tMState.DefineState(2, fMax, tagZero + tagSpan); //'Максимальное значение тега (span)
+                    tMState.DefineState(2, fMax, tagZero + tagSpan); //'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ (span)
                     MyState = tMState.GetState(1);
-                    MyState.DefineState(tagZero, fMax, 32768); //'Красный
+                    MyState.DefineState(tagZero, fMax, 32768); //'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     MyState = tMState.GetState(2);
-                    MyState.DefineState(fMax, MyState.UpperValue, 255);//'Зелень
+                    MyState.DefineState(fMax, MyState.UpperValue, 255);//'пїЅпїЅпїЅпїЅпїЅпїЅ
                 }
                 else
                 {
                     tMState.DefineState(1, tagZero, fMin);
-                    tMState.DefineState(2, fMin, tagSpan);//'Максимальное значение тега (span)
+                    tMState.DefineState(2, fMin, tagSpan);//'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ (span)
                     MyState = tMState.GetState(1);
-                    MyState.DefineState(tagZero, fMin, 255);//'Красный
+                    MyState.DefineState(tagZero, fMin, 255);//'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                     MyState = tMState.GetState(2);
-                    MyState.DefineState(fMin, MyState.UpperValue, 32768);// 'Зелень
+                    MyState.DefineState(fMin, MyState.UpperValue, 32768);// 'пїЅпїЅпїЅпїЅпїЅпїЅ
                 }
             }
 
@@ -163,9 +181,9 @@ namespace gPBToolKit
                 tMState.DefineState(2, fMin, fMax);
                 tMState.DefineState(3, fMax, tagZero + tagSpan);
                 MyState = tMState.GetState(1);
-                MyState.Color = 255;//DefineState(tagZero, fMin, 255);//'Красный
+                MyState.Color = 255;//DefineState(tagZero, fMin, 255);//'пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
                 MyState = tMState.GetState(2);
-                MyState.Color = 32768;//DefineState(fMin, fMax, 32768); //'Зелень
+                MyState.Color = 32768;//DefineState(fMin, fMax, 32768); //'пїЅпїЅпїЅпїЅпїЅпїЅ
                 MyState = tMState.GetState(3);
                 MyState.Color = 255;
             }
